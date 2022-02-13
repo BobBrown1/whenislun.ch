@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>School Clock</title>
+    <link rel="stylesheet" href="./styling/index.css">
+  </head>
+  <body>
+
+    <div class="headText">
+      <h2>School Clock</h2>
+
+      <h3 id="todaysDate"></h3>
+
+      <h4 id="current"></h4>
+
+      <p id="schedule"></p>
+
+      <p>Enter your schedule below!</p>
+      <p><strong>Note:</strong> This website verifies classes based on class name. Classes without names are skipped over, therefore you do not need to fill in all periods.</p>
+    </div>
+
+    <div id="alertbox" class="alert">
+      <span class="alertClose" onclick="this.parentElement.style.display='none';">&times;</span>
+      <p id="alerttext"></p>
+    </div>
+
+    <div class="sched" style="display: inline-block;">
+      <p>Period One</p>
+      <input type="text" id="name1" placeholder="Class Name">
+      <br>
+      <input type="text" id="perTime1" placeholder="End Time">
+      <br>
+      <p id="validTime1"></p>
+    </div>
+
+    <div class="sched" style="display: inline-block;">
+      <p>Period Two</p>
+      <input type="text" id="name2" placeholder="Class Name">
+      <br>
+      <input type="text" id="perTime2" placeholder="End Time">
+      <br>
+      <p id="validTime2"></p>
+    </div>
+
+    <div class="sched" style="display: inline-block;">
+      <p>Period Three</p>
+      <input type="text" id="name3" placeholder="Class Name">
+      <br>
+      <input type="text" id="perTime3" placeholder="End Time">
+      <br>
+      <p id="validTime3"></p>
+    </div>
+
+    <div class="sched" style="display: inline-block;">
+      <p>Period Four</p>
+      <input type="text" id="name4" placeholder="Class Name">
+      <br>
+      <input type="text" id="perTime4" placeholder="End Time">
+      <br>
+      <p id="validTime4"></p>
+    </div>
+
+    <div class="sched" style="display: inline-block;">
+      <p>Period Five</p>
+      <input type="text" id="name5" placeholder="Class Name">
+      <br>
+      <input type="text" id="perTime5" placeholder="End Time">
+      <br>
+      <p id="validTime5"></p>
+    </div>
+
+    <div class="sched" style="display: inline-block;">
+      <p>Period Six</p>
+      <input type="text" id="name6" placeholder="Class Name">
+      <br>
+      <input type="text" id="perTime6" placeholder="End Time">
+      <br>
+      <p id="validTime6"></p>
+    </div>
+
+    <div class="sched" style="display: inline-block;">
+      <p>Period Seven</p>
+      <input type="text" id="name7" placeholder="Class Name">
+      <br>
+      <input type="text" id="perTime7" placeholder="End Time">
+      <br>
+      <p id="validTime7"></p>
+    </div>
+
+    <br>
+  
+    <button onclick="checkAll()">Submit</button>
+    <br>
+    <br>
+    <button onclick="viewSched()">View Stored Schedule</button>
+
+    <button onclick="removeSched()">Remove Stored Schedule</button>
+
+    <script src="./scripts/index.js"></script>
+    <script src="./scripts/sched.js"></script>
+  </body>
+</html>

@@ -1,0 +1,40 @@
+.headText {
+    margin: 10px;
+}
+
+.sched {
+    margin: 10px;
+}
+
+.sched input {
+    margin-bottom: 8px;
+}
+
+button {
+    margin: 10px;
+}
+
+/* Alerts */
+
+.alert {
+    background-color: rgb(252, 55, 55);
+    padding: 18px;
+    color: white;
+    font-family: 'ABeeZee';
+    display: none;
+    margin-bottom: 15px;
+}
+
+.alertClose {
+    color: white;
+    font-size: 25px;
+    font-family: 'ABeeZee';
+    font-weight: bold;
+    float: right;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.alertClose:hover {
+    color: black;
+}
