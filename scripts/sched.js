@@ -60,6 +60,8 @@ function showClass() {
   var now = new Date();
   var classTimes = []
 
+  console.log(classes);
+
   for(var i = 0; i < classes.length; i++){
     var classesDate = new Date(classes[i]["realTime"]);
     var between = now.getTime() - classesDate.getTime();
@@ -68,14 +70,16 @@ function showClass() {
     }
 }
 
+console.log(classTimes);
+
 
 var currentClass = Math.max(...classTimes);
 // var classIndex = classTimes.indexOf(currentClass);
-console.log(currentClass);
-var classIndex = classes.map(function(e) { return e.realTime; }).indexOf(new Date(currentClass).getTime());
+var currentClassDate = new Date(currentClass);
+var classIndex = classes.map(function(e) { return e.realTime; }).indexOf(currentClassDate);
 var currentDisplay = document.getElementById("current");
 
-var classEnd = new Date(classes[classIndex]["realTime"]);
+var classEnd = new Date(classes[Math.abs(classIndex)]["realTime"]);
 var now = new Date();
 var timeBetween = Math.abs(now.getTime() - classEnd.getTime());
 
@@ -83,6 +87,7 @@ var timeBetween = Math.abs(now.getTime() - classEnd.getTime());
 
 var minutes = Math.floor((timeBetween % 36e5) / 6e4);
 var seconds = ((timeBetween % 6e4) / 1000).toFixed(0);
-currentDisplay.innerHTML = classes[classIndex]["name"] + " - ";
+currentDisplay.innerHTML = classes[Math.abs(classIndex)]["name"] + " - ";
 currentDisplay.innerHTML += `${minutes}:${(seconds < 10 ? "0" : "")}${seconds}`;
+return false;
 }
