@@ -39,6 +39,7 @@ function convertTimes() {
     var newDate = new Date();
     newDate.setHours(sHours);
     newDate.setMinutes(sMinutes);
+    newDate.setSeconds(0);
     classes[i] = {"name": classes[i]["name"], "time": classes[i]["time"], "realTime": newDate};
   }
   localStorage.setItem("classes", JSON.stringify(classes));
