@@ -71,9 +71,9 @@ function showClass() {
     }
 }
 
-console.log(classTimes);
-
-
+if (classTimes.length === 0) {
+  document.getElementById("current").innerHTML = "Your day is done!";
+} else {
 var currentClass = Math.max(...classTimes);
 // var classIndex = classTimes.indexOf(currentClass);
 var currentClassDate = new Date(currentClass);
@@ -88,7 +88,7 @@ var timeBetween = Math.abs(now.getTime() - classEnd.getTime());
 
 var minutes = Math.floor((timeBetween % 36e5) / 6e4);
 var seconds = ((timeBetween % 6e4) / 1000).toFixed(0);
-currentDisplay.innerHTML = classes[Math.abs(classIndex)]["name"] + " - ";
-currentDisplay.innerHTML += `${minutes}:${(seconds < 10 ? "0" : "")}${seconds}`;
-return false;
+currentDisplay.innerHTML = classes[Math.abs(classIndex) + 1]["name"] + " - ";
+currentDisplay.innerHTML += `${minutes}:${(seconds < 10 ? "0" : "")}${seconds}`
+}
 }
