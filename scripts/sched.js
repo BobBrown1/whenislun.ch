@@ -90,7 +90,6 @@ function duplicateCheck() {
     if (! currentClass) {
       document.getElementById("current").innerHTML = "Your day is over!";
   } else {
-    var currentClassDate = new Date(currentClass.realTime);
         
     var classIndex = classes.indexOf(currentClass);
     

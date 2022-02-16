@@ -17,7 +17,7 @@ setInterval(updateDate, 1000);
 
 function checkAll() {
     const approved = [];
-    for (var i = 0; i < 6; i++) {
+    for (var i = 0; i < 7; i++) {
       var className = document.getElementById("name"+(i + 1)).value;
 
       if (className.length < 1) {

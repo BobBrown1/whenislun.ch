@@ -36,6 +36,14 @@
     text-align: center;
 }
 
+.schedList {
+    text-align: center;
+}
+
+.schedules {
+    text-align: center;
+}
+
 button {
     margin: 10px;
 }
