@@ -30,12 +30,12 @@ function checkAll() {
       var nomilreg=new RegExp("^(1[3-9]|2[0-3]):[0-5][0-9] ?[aA]\.?[mM]\.?$");
 
       if (!timereg.test(perTime)) {
-        alerttext.innerHTML = "Invalid time format in class: " + (i + 1);
+        alerttext.innerHTML = "Invalid time format in class: Period " + (i + 1);
         alertbox.style.display = "block";
         return false;
       };
       if (nomilreg.test(perTime)) {
-        alerttext.innerHTML = "You used \"AM\" with a military time between 13:00 and 23:59 in class: " + (i + 1);
+        alerttext.innerHTML = "You used \"AM\" with a military time between 13:00 and 23:59 in class: Period " + (i + 1);
         alertbox.style.display = "block";
         return false;
       };

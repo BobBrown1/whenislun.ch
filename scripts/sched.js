@@ -98,11 +98,12 @@ function duplicateCheck() {
     var timeBetween = Math.abs(now.getTime() - classEnd.getTime());
     
     // Convert to min/sec
-    
+
+    var hours = Math.floor((timeBetween / (1000 * 60 * 60)) % 24);
     var minutes = Math.floor((timeBetween % 36e5) / 6e4);
     var seconds = ((timeBetween % 6e4) / 1000).toFixed(0);
     document.getElementById("current").innerHTML = "You are currently in <u>" + classes[Math.abs(classIndex)]["name"] + "</u>.";
-    document.getElementById("timeLeft").innerHTML = `You have ${minutes}:${(seconds < 10 ? "0" : "")}${seconds} left.`;
+    document.getElementById("timeLeft").innerHTML = `You have ${(hours < 10) ? "0" + hours : hours}:${(minutes < 10) ? "0" + minutes : minutes}:${(seconds < 10 ? "0" : "")}${seconds} left.`;
     return false;
 }
 }
