@@ -93,7 +93,6 @@ function duplicateCheck() {
     var currentClassDate = new Date(currentClass.realTime);
         
     var classIndex = classes.indexOf(currentClass);
-    var currentDisplay = document.getElementById("current");
     
     var classEnd = new Date(classes[Math.abs(classIndex)]["realTime"]);
     var now = new Date();
@@ -103,8 +102,8 @@ function duplicateCheck() {
     
     var minutes = Math.floor((timeBetween % 36e5) / 6e4);
     var seconds = ((timeBetween % 6e4) / 1000).toFixed(0);
-    currentDisplay.innerHTML = classes[Math.abs(classIndex)]["name"] + " - ";
-    currentDisplay.innerHTML += `${minutes}:${(seconds < 10 ? "0" : "")}${seconds}`;
+    document.getElementById("current").innerHTML = "You are currently in <u>" + classes[Math.abs(classIndex)]["name"] + "</u>.";
+    document.getElementById("timeLeft").innerHTML = `You have ${minutes}:${(seconds < 10 ? "0" : "")}${seconds} left.`;
     return false;
 }
 }

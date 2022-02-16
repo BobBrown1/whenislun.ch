@@ -9,6 +9,7 @@ function updateDate() {
     // str += "Today is: " + days[now.getDay()] + ", " + now.getDate() + " " + months[now.getMonth()] + " " + now.getFullYear() + " " + now.getHours() +":" + now.getMinutes() + ":" + now.getSeconds();
     str += days[now.getDay()] + ", " + months[now.getMonth()] + " " + now.getDate() + ", " + now.getFullYear() + "<br>" + now.getHours() +":" + now.getMinutes() + ":" + now.getSeconds();
 
+    document.getElementById("currentDate").innerHTML = "It is currently:"
     document.getElementById("todaysDate").innerHTML = str;
 }
 
@@ -50,6 +51,7 @@ function checkAll() {
     };
     if(addToStorage(approved)) {
       alert("Success");
+      window.location.reload();
     } else {
       alerttext.innerHTML = "There was an error storing your schedule. Please try again later.";
       alertbox.style.display = "block";
