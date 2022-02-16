@@ -29,7 +29,7 @@ function convertTimes() {
     var time = JSON.parse(localStorage.getItem("classes"))[i]["time"];
     var hours = Number(time.match(/^(\d+)/)[1]);
     var minutes = Number(time.match(/:(\d+)/)[1]);
-    var AMPM = time.match(/\s(.*)$/)[1];
+    var AMPM = time.match(/(am|pm)$/)[1];
     if(AMPM == "pm" && hours<12) hours = hours+12;
     if(AMPM == "am" && hours==12) hours = hours-12;
     var sHours = hours.toString();
@@ -55,40 +55,56 @@ function duplicateCheck() {
     return new Set(classTimes).size !== classTimes.length;
   }
 
-function showClass() {
-  var classes = JSON.parse(localStorage.getItem("classes"));
+  function showClass() {
+    var classes = JSON.parse(localStorage.getItem("classes"));
   
-  var now = new Date();
-  var classTimes = []
+    var currentClass;
 
-  console.log(classes);
+    var sorted = classes.sort((a, b) => {
+        var date = new Date(a.realTime);
+        var dateb = new Date(b.realTime);
 
-  for(var i = 0; i < classes.length; i++){
-    var classesDate = new Date(classes[i]["realTime"]);
-    var between = now.getTime() - classesDate.getTime();
-    if (between < 0) {
-        classTimes.push(between);
+        if (date > dateb)
+            return 1;
+
+        if (date < dateb)
+            return -1;
+
+        return 0;
+    })
+
+    var now = new Date();
+
+    for(var i = 0; i < classes.length; i++){
+        var classesDate = new Date(classes[i]["realTime"]);
+        var between = now.getTime() - classesDate.getTime();
+          
+        if (between < 0) {
+            currentClass = classes[i];
+    
+            break;
+        }
     }
-}
-
-if (classTimes.length === 0) {
-  document.getElementById("current").innerHTML = "Your day is done!";
-} else {
-var currentClass = Math.max(...classTimes);
-// var classIndex = classTimes.indexOf(currentClass);
-var currentClassDate = new Date(currentClass);
-var classIndex = classes.map(function(e) { return e.realTime; }).indexOf(currentClassDate);
-var currentDisplay = document.getElementById("current");
-
-var classEnd = new Date(classes[Math.abs(classIndex)]["realTime"]);
-var now = new Date();
-var timeBetween = Math.abs(now.getTime() - classEnd.getTime());
-
-// Convert to min/sec
-
-var minutes = Math.floor((timeBetween % 36e5) / 6e4);
-var seconds = ((timeBetween % 6e4) / 1000).toFixed(0);
-currentDisplay.innerHTML = classes[Math.abs(classIndex) + 1]["name"] + " - ";
-currentDisplay.innerHTML += `${minutes}:${(seconds < 10 ? "0" : "")}${seconds}`
+    
+    // var classIndex = classTimes.indexOf(currentClass);
+    if (! currentClass) {
+      document.getElementById("current").innerHTML = "Your day is over!";
+  } else {
+    var currentClassDate = new Date(currentClass.realTime);
+        
+    var classIndex = classes.indexOf(currentClass);
+    var currentDisplay = document.getElementById("current");
+    
+    var classEnd = new Date(classes[Math.abs(classIndex)]["realTime"]);
+    var now = new Date();
+    var timeBetween = Math.abs(now.getTime() - classEnd.getTime());
+    
+    // Convert to min/sec
+    
+    var minutes = Math.floor((timeBetween % 36e5) / 6e4);
+    var seconds = ((timeBetween % 6e4) / 1000).toFixed(0);
+    currentDisplay.innerHTML = classes[Math.abs(classIndex)]["name"] + " - ";
+    currentDisplay.innerHTML += `${minutes}:${(seconds < 10 ? "0" : "")}${seconds}`;
+    return false;
 }
 }
