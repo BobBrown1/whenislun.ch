@@ -3,7 +3,7 @@ var now = new Date();
 if (localStorage.getItem("classes") == null) {
 } else {
     var classes = JSON.parse(localStorage.getItem("classes"));
-    document.getElementById("schedule").innerHTML += "<strong>Schedule:</strong><br>";
+    document.getElementById("schedule").innerHTML += "<strong><u>Today's Schedule:</u></strong><br>";
     for (var i = 0; i < classes.length; i++) {
         document.getElementById("schedule").innerHTML += (i + 1) + ". " + classes[i]["name"] + " - Ends At " + classes[i]["time"] + "<br>";
   }

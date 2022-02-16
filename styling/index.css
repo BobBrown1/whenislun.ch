@@ -1,3 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Overpass:wght@100&display=swap');
+
+body {
+    font-family: 'Overpass', sans-serif;
+    background-color: white;
+    color: black;
+}
+
+.dark-mode {
+    background-color: black;
+    color: white;
+  }
+  
+
 .headText {
     margin: 10px;
 }
@@ -34,6 +48,7 @@
 
 #schedule {
     text-align: center;
+    font-size: 25px;
 }
 
 .schedList {

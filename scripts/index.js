@@ -73,3 +73,9 @@ function removeSched() {
   localStorage.removeItem("classes");
   alert("Success");
 }
+
+function darkMode() {
+  var element = document.body;
+  element.classList.toggle("dark-mode");
+}
+
