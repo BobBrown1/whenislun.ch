@@ -7,7 +7,7 @@ if (localStorage.getItem("classes") == null) {
     for (var i = 0; i < classes.length; i++) {
         document.getElementById("schedule").innerHTML += (i + 1) + ". " + classes[i]["name"] + " - Ends At " + classes[i]["time"] + "<br>";
   }
-    setInterval(beginCounter, 1000);;
+    setInterval(beginCounter, 1000);
 }
 
 function beginCounter() {
@@ -104,6 +104,8 @@ function duplicateCheck() {
     var seconds = ((timeBetween % 6e4) / 1000).toFixed(0);
     document.getElementById("current").innerHTML = "You are currently in <u>" + classes[Math.abs(classIndex)]["name"] + "</u>.";
     document.getElementById("timeLeft").innerHTML = `You have ${(hours < 10) ? "0" + hours : hours}:${(minutes < 10) ? "0" + minutes : minutes}:${(seconds < 10 ? "0" : "")}${seconds} left.`;
+    document.getElementById("share").innerHTML = "Share Schedule";
+    document.getElementById("share").style.display = "block";
     return false;
 }
 }

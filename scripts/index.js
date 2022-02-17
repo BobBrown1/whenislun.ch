@@ -79,3 +79,12 @@ function darkMode() {
   element.classList.toggle("dark-mode");
 }
 
+function share() {
+  var classes = JSON.parse(localStorage.getItem("classes"));
+  var param = "https://school.bob-brown.info/class?s=";
+  for (var i = 0; i < classes.length; i++) {
+    param += `${encodeURI(classes[i]["name"])}=${encodeURI(classes[i]["time"])};`;
+  }
+  alert(param);
+}
+
