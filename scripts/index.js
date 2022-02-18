@@ -74,19 +74,6 @@ function removeSched() {
   alert("Success");
 }
 
-function shareSched() {
-  if (localStorage.getItem("classes") == null) {
-    alert("No set schedule.");
-  }else {
-  var classes = JSON.parse(localStorage.getItem("classes"));
-  var param = "https://school.bob-brown.info/class?s=";
-  for (var i = 0; i < classes.length; i++) {
-    param += `${encodeURI(classes[i]["name"])}=${encodeURI(classes[i]["time"])};`;
-  }
-  alert(param);
-}
-}
-
 function darkMode() {
   var element = document.body;
   element.classList.toggle("dark-mode");
