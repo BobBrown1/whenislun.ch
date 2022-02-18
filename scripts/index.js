@@ -89,7 +89,8 @@ function shareSched() {
       for (var i = 0; i < classes.length; i++) {
           param += `${encodeURI(classes[i]["name"])}=${encodeURI(classes[i]["time"])};`;
       }
-      document.getElementById("modal-text").innerHTML = param;
+      document.getElementById("modal-header").innerHTML = "<strong>Your Customized Schedule Link:</strong><br>";
+      document.getElementById("modal-text").value = param;
       document.getElementById("myModal").style.display = "block";
 }
 }
@@ -105,4 +106,3 @@ if (event.target == document.getElementById("myModal")) {
   document.getElementById("myModal").style.display = "none";
 }
 }
-
