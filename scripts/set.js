@@ -3,7 +3,7 @@ const urlParams = new URLSearchParams(getParams);
 
 if (urlParams.has('s')) {
     var sched = urlParams.get('s');
-    var classList = sched.slice(0, -1).split(";");
+    var classList = sched.split(";");
     if (classList.length > 8) {
         window.location.href = "https://school.bob-brown.info/";
     }

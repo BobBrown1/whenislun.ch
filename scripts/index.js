@@ -17,7 +17,7 @@ setInterval(updateDate, 1000);
 
 function checkAll() {
     const approved = [];
-    for (var i = 0; i < 7; i++) {
+    for (var i = 0; i < 9; i++) {
       var className = document.getElementById("name"+(i + 1)).value;
 
       if (className.length < 1) {
@@ -90,7 +90,8 @@ function shareSched() {
           param += `${encodeURI(classes[i]["name"])}=${encodeURI(classes[i]["time"])};`;
       }
       document.getElementById("modal-header").innerHTML = "<strong>Your Customized Schedule Link:</strong><br>";
-      document.getElementById("modal-text").value = param;
+      var newparam = param.slice(0, -1);
+      document.getElementById("modal-text").value = newparam;
       document.getElementById("myModal").style.display = "block";
 }
 }
