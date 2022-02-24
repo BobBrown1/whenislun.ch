@@ -77,6 +77,10 @@ function removeSched() {
 function darkMode() {
   var element = document.body;
   element.classList.toggle("dark-mode");
+  var classes = document.getElementsByClassName("sched");
+  for (var i = 0; i < classes.length; i++) {
+    classes[i].classList.toggle("dark-input");
+  }
 }
 
 // When the user clicks on the button, open the modal

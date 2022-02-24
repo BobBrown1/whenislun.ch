@@ -88,6 +88,7 @@ function duplicateCheck() {
     
     // var classIndex = classTimes.indexOf(currentClass);
     if (! currentClass) {
+      document.getElementById("timeLeft").style.display = "none";
       document.getElementById("current").innerHTML = "Your day is over!";
   } else {
         
