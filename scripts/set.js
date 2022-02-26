@@ -5,7 +5,7 @@ if (urlParams.has('s')) {
     var sched = urlParams.get('s');
     var classList = sched.split(";");
     if (classList.length > 9) {
-        window.location.href = "https://school.bob-brown.info/";
+        window.location.href = `https://${window.location.hostname}/`;
     }
     var schedList = []
     for (var i = 0; i < classList.length; i++) {
@@ -16,8 +16,8 @@ if (urlParams.has('s')) {
     if (confirm("Your schedule has been set! Would you like to remain on this page so you can bookmark your class?")) {
         document.write("<a href='https://school.bob-brown.info'>Return Home</a>");
     } else {
-        window.location.href = "https://school.bob-brown.info/";
+        window.location.href = `https://${window.location.hostname}/`;
     }
 } else {
-    window.location.href = "https://school.bob-brown.info/";
+    window.location.href = `https://${window.location.hostname}/`;
 }

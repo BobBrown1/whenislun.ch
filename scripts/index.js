@@ -89,7 +89,7 @@ function shareSched() {
       alert("No set schedule.");
   } else {
       var classes = JSON.parse(localStorage.getItem("classes"));
-      var param = "https://school.bob-brown.info/class?s=";
+      var param = `https://${window.location.hostname}/class?s=`;
       for (var i = 0; i < classes.length; i++) {
           param += `${encodeURI(classes[i]["name"])}=${encodeURI(classes[i]["time"])};`;
       }
