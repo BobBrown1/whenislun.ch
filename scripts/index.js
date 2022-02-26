@@ -17,7 +17,7 @@ setInterval(updateDate, 1000);
 
 function checkAll() {
     const approved = [];
-    for (var i = 0; i < 9; i++) {
+    for (var i = 0; i < 10; i++) {
       var className = document.getElementById("name"+(i + 1)).value;
 
       if (className.length < 1) {
@@ -110,4 +110,12 @@ window.onclick = function(event) {
 if (event.target == document.getElementById("myModal")) {
   document.getElementById("myModal").style.display = "none";
 }
+}
+
+function copyText() {
+  document.getElementById("modal-text").focus()
+  var val = document.getElementById("modal-text");
+
+  navigator.clipboard.writeText(val.value);
+
 }
