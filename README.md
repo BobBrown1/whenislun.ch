@@ -1,6 +1,6 @@
 # School Clock
 
-This is a simple yet helpful web app made for storing your class schedules with no database needed. You can view a the official website for this repository [here](https://school.bob-brown.info).
+This is a simple yet helpful web app made for storing your class schedules with no database needed. You can view a the official website for this repository [here](https://whenislun.ch).
 
 ## How it works:
 
