@@ -75,6 +75,17 @@ input {
 
 button {
     margin: 10px;
+    background-color: #ea4e1b;
+    border-radius: 8px;
+    border: none;
+    font-size: 15px;
+    padding: 8px 12px;
+    transition: all 400ms;
+}
+
+button:hover {
+    font-size: 18px;
+    font-size-adjust: 20px;
 }
 
 #help-link {
