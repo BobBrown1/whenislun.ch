@@ -1,7 +1,6 @@
 var now = new Date();
 
-if (localStorage.getItem("classes") == null) {
-} else {
+if (localStorage.getItem("classes") != null) {
     var classes = JSON.parse(localStorage.getItem("classes"));
     document.getElementById("schedule").innerHTML += "<strong><u>Today's Schedule:</u></strong><br>";
     for (var i = 0; i < classes.length; i++) {

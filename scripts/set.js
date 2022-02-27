@@ -4,9 +4,9 @@ const urlParams = new URLSearchParams(getParams);
 if (urlParams.has('s')) {
     var sched = urlParams.get('s');
     var classList = sched.split(";");
-    if (classList.length > 11) {
+    if (classList.length > 11 || classList.length > 1) {
         window.location.href = `https://${window.location.hostname}/`;
-    }
+    } 
     var schedList = []
     for (var i = 0; i < classList.length; i++) {
         var itemList = classList[i].split("=");
