@@ -29,8 +29,9 @@ function convertTimes() {
     var hours = Number(time.match(/^(\d+)/)[1]);
     var minutes = Number(time.match(/:(\d+)/)[1]);
     var AMPM = time.match(/(am|pm)$/i)[1];
-    if(AMPM.toLowerCase() == "pm" && hours<12) hours = hours+12;
-    if(AMPM.toLowerCase() == "am" && hours==12) hours = hours-12;
+    let lowercase = AMPM.toLowerCase();
+    if(lowercase == "pm" && hours<12) hours = hours+12;
+    if(lowercase == "am" && hours==12) hours = hours-12;
     var sHours = hours.toString();
     var sMinutes = minutes.toString();
     if(hours<10) sHours = "0" + sHours;
