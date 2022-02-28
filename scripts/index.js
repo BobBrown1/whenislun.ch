@@ -101,13 +101,17 @@ function shareSched() {
 }
 
 function showHelp() {
-      document.getElementById("helpModal").style.display = "block";
+      document.getElementById("help-modal-wrapper").style.height = "100%";
 }
 
 
 // When the user clicks on <span> (x), close the modal
 function closeModal(modal) {
+  if (modal == "myModal") {
   document.getElementById(modal).style.display = "none";
+  } else {
+    document.getElementById(modal).style.height = 0;
+  }
 }
 
 // When the user clicks anywhere outside of the modal, close it
