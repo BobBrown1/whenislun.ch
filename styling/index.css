@@ -183,16 +183,12 @@ a:hover {
 /* Tutorial Modal */
   
 .help-modal-content {
-    position: absolute;
     background-color: #fefefe;
     border: 1px solid #888;
     border-radius: 12px;
     margin: 15% auto; 
     padding: 20px;
     width: 80%; 
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%,-50%);
 }
 
   
