@@ -87,13 +87,13 @@ a:hover {
     color: #ea4e1b;
     border: none;
     text-decoration: underline;
-    font-size: 20px;
+    font-size: 23px;
     transition: all 500ms;
 }
 
 
 #help-link:hover {
-    font-size: 23px;
+    font-size: 26px;
     font-size-adjust: 20px
 }
 
