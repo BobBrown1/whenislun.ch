@@ -4,8 +4,8 @@ if (localStorage.getItem("classes") != null) {
     var classes = JSON.parse(localStorage.getItem("classes"));
     document.getElementById("schedule").innerHTML += "<strong><u>Today's Schedule:</u></strong><br>";
     for (var i = 0; i < classes.length; i++) {
-        document.getElementById("schedule").innerHTML += (i + 1) + ". " + classes[i]["name"] + " - Ends At " + classes[i]["time"] + "<button class='timeuntil' onclick=timeUntil('" + classes[i]["realTime"] + "','" + encodeURIComponent(classes[i]["name"]) + "')>Time Until End</button>" +"<br>";
-  }
+        document.getElementById("schedule").innerHTML += (i + 1) + ". " + classes[i]["name"] + " - Ends At " + classes[i]["time"] + "<button class='timeuntil' onclick=timeUntil('" + encodeURIComponent(classes[i]["time"]) + "','" + encodeURIComponent(classes[i]["name"]) + "')>Time Until End</button>" +"<br>";
+    }
     setInterval(beginCounter, 1000);
 }
 
@@ -23,7 +23,7 @@ if (localStorage.getItem("classes") !== null) {
 
 
 function convertTimes() {
-  var classes = JSON.parse(localStorage.getItem("classes"));
+    var classes = JSON.parse(localStorage.getItem("classes"));
   for (var i = 0; i < classes.length; i++) {
     var time = JSON.parse(localStorage.getItem("classes"))[i]["time"];
     var hours = Number(time.match(/^(\d+)/)[1]);
@@ -109,9 +109,23 @@ function duplicateCheck() {
 }
 }
 
-function timeUntil(realTime, classname) {
+function timeUntil(strTime, classname) {
+    var decodedTime = decodeURIComponent(strTime);
     var now = new Date();
-    var classtime = new Date(realTime);
+    var hours = Number(decodedTime.match(/^(\d+)/)[1]);
+    var minutes = Number(decodedTime.match(/:(\d+)/)[1]);
+    var AMPM = decodedTime.match(/(am|pm)$/i)[1];
+    let lowercase = AMPM.toLowerCase();
+    if(lowercase == "pm" && hours<12) hours = hours+12;
+    if(lowercase == "am" && hours==12) hours = hours-12;
+    var sHours = hours.toString();
+    var sMinutes = minutes.toString();
+    if(hours<10) sHours = "0" + sHours;
+    if(minutes<10) sMinutes = "0" + sMinutes;
+    var classtime = new Date();
+    classtime.setHours(sHours);
+    classtime.setMinutes(sMinutes);
+    classtime.setSeconds(0);
     if (now.getTime() > classtime.getTime()) {
         alert("This is in the past!");
     } else {

@@ -1,3 +1,12 @@
+const getParams = window.location.search;
+const urlParams = new URLSearchParams(getParams);
+
+if (urlParams.has('a')) {
+  if(urlParams.get('a') == "refresh") {
+    window.location = window.location.href.split("?")[0];
+  }
+}
+
 function updateDate() {
     var str = "";
 
