@@ -101,8 +101,7 @@ function shareSched() {
 }
 
 function showHelp() {
-      document.getElementById("help-modal-wrapper").style.height = "100%";
-}
+      document.getElementById("help-modal-wrapper").style.height = "100%";}
 
 
 // When the user clicks on <span> (x), close the modal
