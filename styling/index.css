@@ -118,6 +118,21 @@ a:hover {
     font-size: 25px;
 }
 
+.timeuntil {
+    margin: 8px;
+    background-color: #ea4e1b;
+    border-radius: 8px;
+    border: none;
+    font-size: 14px;
+    padding: 6px 10px;
+    transition: all 400ms;
+}
+
+.timeuntil:hover {
+    font-size: 17px;
+    font-size-adjust: 20px;
+}
+
 .schedList {
     text-align: center;
 }

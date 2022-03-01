@@ -4,7 +4,7 @@ if (localStorage.getItem("classes") != null) {
     var classes = JSON.parse(localStorage.getItem("classes"));
     document.getElementById("schedule").innerHTML += "<strong><u>Today's Schedule:</u></strong><br>";
     for (var i = 0; i < classes.length; i++) {
-        document.getElementById("schedule").innerHTML += (i + 1) + ". " + classes[i]["name"] + " - Ends At " + classes[i]["time"] + "<br>";
+        document.getElementById("schedule").innerHTML += (i + 1) + ". " + classes[i]["name"] + " - Ends At " + classes[i]["time"] + "<button class='timeuntil' onclick=timeUntil('" + classes[i]["realTime"] + "','" + encodeURIComponent(classes[i]["name"]) + "')>Time Until End</button>" +"<br>";
   }
     setInterval(beginCounter, 1000);
 }
@@ -107,4 +107,18 @@ function duplicateCheck() {
     document.getElementById("timeLeft").innerHTML = `You have ${(hours < 10) ? "0" + hours : hours}:${(minutes < 10) ? "0" + minutes : minutes}:${(seconds < 10 ? "0" : "")}${seconds} left.`;
     return false;
 }
+}
+
+function timeUntil(realTime, classname) {
+    var now = new Date();
+    var classtime = new Date(realTime);
+    if (now.getTime() > classtime.getTime()) {
+        alert("This is in the past!");
+    } else {
+        var timeUntil = Math.abs(now.getTime() - classtime.getTime());
+        var classHours = Math.floor((timeUntil / (1000 * 60 * 60)) % 24);
+        var classMinutes = Math.floor((timeUntil % 36e5) / 6e4);
+        var classSeconds = ((timeUntil % 6e4) / 1000).toFixed(0);
+        alert(`You have ${(classHours < 10) ? "0" + classHours : classHours}:${(classMinutes < 10) ? "0" + classMinutes : classMinutes}:${(classSeconds < 10 ? "0" : "")}${classSeconds} left until the end of ${decodeURIComponent(classname)}`);
+    }
 }
