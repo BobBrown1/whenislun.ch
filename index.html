@@ -54,16 +54,17 @@
     <div class="schedules">
     <div class="sched" style="display: inline-block;">
       <p>Period One</p>
-      <input type="text" id="name1" placeholder="Class Name">
+      <input type="text" list="classinputs" id="name1" placeholder="Class Name">
       <br>
       <input type="text" id="perTime1" placeholder="End Time">
       <br>
       <p id="validTime1"></p>
     </div>
 
+
     <div class="sched" style="display: inline-block;">
       <p>Period Two</p>
-      <input type="text" id="name2" placeholder="Class Name">
+      <input type="text" list="classinputs" id="name2" placeholder="Class Name">
       <br>
       <input type="text" id="perTime2" placeholder="End Time">
       <br>
@@ -72,7 +73,7 @@
 
     <div class="sched" style="display: inline-block;">
       <p>Period Three</p>
-      <input type="text" id="name3" placeholder="Class Name">
+      <input type="text" id="name3" list="classinputs" placeholder="Class Name">
       <br>
       <input type="text" id="perTime3" placeholder="End Time">
       <br>
@@ -81,7 +82,7 @@
 
     <div class="sched" style="display: inline-block;">
       <p>Period Four</p>
-      <input type="text" id="name4" placeholder="Class Name">
+      <input type="text" id="name4" list="classinputs" placeholder="Class Name">
       <br>
       <input type="text" id="perTime4" placeholder="End Time">
       <br>
@@ -90,7 +91,7 @@
 
     <div class="sched" style="display: inline-block;">
       <p>Period Five</p>
-      <input type="text" id="name5" placeholder="Class Name">
+      <input type="text" id="name5" list="classinputs" placeholder="Class Name">
       <br>
       <input type="text" id="perTime5" placeholder="End Time">
       <br>
@@ -99,7 +100,7 @@
 
     <div class="sched" style="display: inline-block;">
       <p>Period Six</p>
-      <input type="text" id="name6" placeholder="Class Name">
+      <input type="text" id="name6" list="classinputs" placeholder="Class Name">
       <br>
       <input type="text" id="perTime6" placeholder="End Time">
       <br>
@@ -108,7 +109,7 @@
 
     <div class="sched" style="display: inline-block;">
       <p>Period Seven</p>
-      <input type="text" id="name7" placeholder="Class Name">
+      <input type="text" id="name7" list="classinputs" placeholder="Class Name">
       <br>
       <input type="text" id="perTime7" placeholder="End Time">
       <br>
@@ -117,7 +118,7 @@
 
     <div class="sched" style="display: inline-block;">
       <p>Period Eight</p>
-      <input type="text" id="name8" placeholder="Class Name">
+      <input type="text" id="name8" list="classinputs" placeholder="Class Name">
       <br>
       <input type="text" id="perTime8" placeholder="End Time">
       <br>
@@ -126,7 +127,7 @@
 
     <div class="sched" style="display: inline-block;">
       <p>Period Nine</p>
-      <input type="text" id="name9" placeholder="Class Name">
+      <input type="text" id="name9" list="classinputs" placeholder="Class Name">
       <br>
       <input type="text" id="perTime9" placeholder="End Time">
       <br>
@@ -135,12 +136,25 @@
 
     <div class="sched" style="display: inline-block;">
       <p>Period Ten</p>
-      <input type="text" id="name10" placeholder="Class Name">
+      <input type="text" id="name10" list="classinputs" placeholder="Class Name">
       <br>
       <input type="text" id="perTime10" placeholder="End Time">
       <br>
       <p id="validTime10"></p>
     </div>
+
+    <datalist id="classinputs">
+      <option value="Algebra"></option>
+      <option value="Biology"></option>
+      <option value="Chemistry"></option>
+      <option value="English"></option>
+      <option value="History"></option>
+      <option value="Math"></option>
+      <option value="PE"></option>
+      <option value="Physics"></option>
+      <option value="Science"></option>
+      <option value="Study Hall"></option>
+    </datalist>
 
     <br>
   
@@ -192,11 +206,11 @@
         <p style="font-size:23px;">Sharing Schedules:</p>
         <p style="margin-left:5%; margin-right:5%;">Often someone else will have a similar (or the same) schedule as you or you will have different schedules every day. It can be annoying to have to enter the same schedule on multiple devices or enter a new one each day. Luckily, WhenIsLun.ch comes with a simple schedule sharing feature.<br><br>The sharing feature is very simple. To use it, follow the instructions below:<br><br>
         <ol style="margin-left:5%; margin-right:5%;">
-          <li>Set your schedule on your primary device. It is required that you have a set schedule to receive the sharing link.</li>
-          <li>Scroll to the bottom of the main page and click <code>Share Schedule</code>. This will open a modal where you can view and copy your schedule link.</li>
+          <li>Set your schedule on your primary device. If you don't want to reset your own schedule, simply enter the schedules into the input boxes without clicking submit.</li>
+          <li>Scroll to the bottom of the main page and click <code>Share Schedule</code>. If you're schedule is not set, click the arrow next to the <code>Submit</code> button and select <code>Get Share Link</code>. This will open a modal where you can view and copy your schedule link.</li>
           <li>Click the <code>Copy</code> button and the link will be copied to your clipboard.</li>
         </ol><br>
-        <p style="margin-left:5%; margin-right:5%;">Once you've followed these steps, you can bookmark and/or share your schedule. Bookmarking your schedule will save you time if you have different schedules throughout your week. To bookmark these links, simply paste the URL into your browser and click <code>OK</code> once the alert pops up. This will allow you to bookmark the customized link. If you'd just like to share your schedule, simply paste the link into an email, text, etc. and send it to anyone you'd like!</p></p>
+        <p style="margin-left:5%; margin-right:5%;">Once you've followed these steps, you can bookmark and/or share your schedule. Bookmarking your schedule will save you time if you have different schedules throughout your week. To bookmark these links, simply paste the URL into your browser and bookmark the page before clicking <code>OK</code> in the alert box. If you'd just like to share your schedule, simply paste the link into an email, text, etc. and send it to anyone you'd like!</p></p>
       </span>
       </div>
     </div>
