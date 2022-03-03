@@ -25,6 +25,7 @@
     <!-- Link Tags -->
     <link rel="stylesheet" href="./styling/index.css">
     <link rel="icon" type="image/x-icon" href="/images/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
   </head>
   <body>
@@ -143,16 +144,24 @@
 
     <br>
   
-    <button onclick="checkAll()">Submit</button>
+    <button class = "submit" onclick="checkAll('button')">Submit</button>
+    <div class="dropdown">
+      <button class="submit" style="border-left:1px solid navy; border-radius: 0px 8px 8px 0px;">
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <button onclick="getShareLink()">Get Share Link</button>
+      </div>
+    </div>
     <br>
     <br>
-    <button onclick="viewSched()">View Stored Schedule</button>
+    <button class="button" onclick="viewSched()">View Stored Schedule</button>
 
-    <button onclick="removeSched()">Remove Stored Schedule</button>
+    <button class = "button" onclick="removeSched()">Remove Stored Schedule</button>
 
-    <button onclick="darkMode()">Dark Mode</button>
+    <button class="button" onclick="darkMode()">Dark Mode</button>
 
-    <button onclick="shareSched()">Share Schedule</button>
+    <button class="button" onclick="shareSched()">Share Schedule</button>
     </div>
   </div>
 
@@ -163,7 +172,7 @@
       <span class="close" onclick="closeModal('myModal')">&times;</span>
       <h3 style="color: black;" id="modal-header"></h3>
       <input style="width: 85%;" type="text" id="modal-text" onClick="this.select();" value="Some text in the Modal.." readonly="readonly">
-      <button onclick="copyText()">Copy Link</button>
+      <button class="button" onclick="copyText()">Copy Link</button>
     </div>
   
   </div>

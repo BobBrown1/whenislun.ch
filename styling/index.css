@@ -37,7 +37,7 @@ input {
 
 /* Button Styling */
 
-button {
+.button {
     margin: 10px;
     background-color: #ea4e1b;
     border-radius: 8px;
@@ -47,7 +47,7 @@ button {
     transition: all 400ms;
 }
 
-button:hover {
+.button:hover {
     font-size: 21px;
     font-size-adjust: 20px;
 }
@@ -151,17 +151,15 @@ a:hover {
 
 .alert {
     background-color: rgb(252, 55, 55);
-    padding: 18px;
+    padding: 18px 12px;
     color: white;
-    font-family: 'ABeeZee';
     display: none;
-    margin-bottom: 15px;
+    margin: 15px 0;
 }
 
 .alertClose {
     color: white;
     font-size: 25px;
-    font-family: 'ABeeZee';
     font-weight: bold;
     float: right;
     cursor: pointer;
@@ -230,6 +228,50 @@ a:hover {
     text-decoration: none;
     cursor: pointer;
 }
+
+/* Submit Button */
+
+.submit {
+    background-color: #ea4e1b;
+    border-radius: 8px 0px 0px 8px;
+    border: none;
+    font-size: 20px;
+    padding: 8px 12px;
+    outline: none;
+}
+
+.submit:hover {
+    background-color: #e4410b;
+}
+
+.dropdown {
+    position: absolute;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    min-width: 160px;
+    z-index: 1;
+}
+  
+.dropdown-content button {
+    color: black;
+    background-color: #ea4e1b;
+    padding:  8px 14px;
+    border-radius: 8px;
+    border: 1.5px solid black;
+    font-size: 12px;
+    display: block;
+}
+
+.dropdown-content button:hover {background-color: #e4410b}
+  
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
 
 /* Keyframes */
 

@@ -24,8 +24,8 @@ function updateDate() {
 
 setInterval(updateDate, 1000);
 
-function checkAll() {
-    const approved = [];
+function checkAll(origin) {
+    var approved = [];
     for (var i = 0; i < 10; i++) {
       var className = document.getElementById("name"+(i + 1)).value;
 
@@ -58,6 +58,7 @@ function checkAll() {
       alertbox.style.display = "block";
       return false;
     };
+    if (origin == 'button') {
     if(addToStorage(approved)) {
       alert("Success");
       window.location.reload();
@@ -66,6 +67,9 @@ function checkAll() {
       alertbox.style.display = "block";
       return false;
     }
+  } else {
+    return approved
+  }
 }
 
 function addToStorage(classes) {
@@ -99,6 +103,20 @@ function shareSched() {
   } else {
       var classes = JSON.parse(localStorage.getItem("classes"));
       var param = `https://${window.location.hostname}/class?s=`;
+      for (var i = 0; i < classes.length; i++) {
+          param += `${encodeURI(classes[i]["name"])}=${encodeURI(classes[i]["time"])};`;
+      }
+      document.getElementById("modal-header").innerHTML = "<strong>Your Customized Schedule Link:</strong><br>";
+      var newparam = param.slice(0, -1);
+      document.getElementById("modal-text").value = newparam;
+      document.getElementById("myModal").style.display = "block";
+}
+}
+
+function getShareLink() {
+  const classes = checkAll('getLink');
+  if (classes !== false) {
+  var param = `https://${window.location.hostname}/class?s=`;
       for (var i = 0; i < classes.length; i++) {
           param += `${encodeURI(classes[i]["name"])}=${encodeURI(classes[i]["time"])};`;
       }
