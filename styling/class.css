@@ -1,0 +1,112 @@
+/* Import Overpass Font */
+
+@import url('https://fonts.googleapis.com/css2?family=Overpass:wght@100&display=swap');
+
+/* Body Styling */
+
+body {
+    font-family: 'Overpass', sans-serif;
+    background-color: white;
+    color: black;
+}
+
+.dark-mode {
+    background-color: black;
+    color: white;
+}
+
+/* Input Styling */
+
+input {
+    margin-bottom: 8px;
+    padding: 12px 6px 12px 6px;
+    border: 1.5px solid black;
+    border-radius: 8px;
+}
+
+.dark-input input {
+    border: 1.5px solid white;
+    background-color: black;
+    cursor: white;
+    color: white;
+}
+
+::placeholder {
+    font-family: 'Overpass', sans-serif;
+}
+
+/* Button Styling */
+
+.button {
+    background-color: #ea4e1b;
+    border-radius: 8px;
+    border: none;
+    font-size: 18px;
+    padding: 8px 12px;
+    transition: all 400ms;
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    color: white;
+}
+
+.button:hover {
+    font-size: 21px;
+    text-decoration: none;
+    font-size-adjust: 20px;
+}
+
+h1 {
+    text-align: center;
+}
+
+/* Link Styling */
+
+a {
+    color: blue;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Body */
+
+.full {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+/* Check */
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;}
+
+.animated-check {
+    height: 10em;
+    width: 10em
+}
+
+.animated-check path {
+    fill: none;
+    stroke: #7ac142;
+    stroke-width: 4;
+    stroke-dasharray: 23;
+    stroke-dashoffset: 23;
+    animation: draw .7s linear forwards;
+    stroke-linecap: round;
+    stroke-linejoin: round
+}
+
+@keyframes draw {
+    to {
+        stroke-dashoffset: 0
+    }
+}
