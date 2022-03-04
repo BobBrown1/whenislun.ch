@@ -13,8 +13,6 @@ if (urlParams.has('s')) {
         schedList.push({"name": itemList[0], "time": itemList[1]})
     }
     localStorage.setItem("classes", JSON.stringify(schedList));
-    alert("Your schedule has been set! You may now bookmark this page if you wish. Otherwise, click 'OK' to continue.");
-    window.location.href = `https://${window.location.hostname}/?a=refresh`;
 } else {
     window.location.href = `https://${window.location.hostname}/`;
 }
