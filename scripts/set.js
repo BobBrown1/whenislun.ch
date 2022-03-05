@@ -23,8 +23,6 @@ if (urlParams.has('s')) {
 
 function checkAll(className, perTime) {
       if (className.length < 1) {
-        continue;
-      } else {
           alert("Invalid class name(s) in link.");
           return false;
       }
