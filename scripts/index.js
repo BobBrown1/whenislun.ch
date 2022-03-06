@@ -48,6 +48,11 @@ function checkAll(origin) {
         alertbox.style.display = "block";
         return false;
       };
+      if(/<[a-z][\s\S]*>/i.test(className)) {
+        alerttext.innerHTML = "HTML used in: Period " + (i + 1);
+        alertbox.style.display = "block";
+        return false;
+      }
 
       if (!nomilreg.test(perTime) && timereg.test(perTime)) {
         approved.push({"name": document.getElementById("name"+(i+1)).value, "time": document.getElementById("perTime"+(i+1)).value});
