@@ -3,7 +3,6 @@
     "description": "When Is Lunch is a simple and helpful chrome extension for school/work schedules.",
     "version": "3.5.22",
     "manifest_version": 3,
-    "permissions": ["storage"],
     "action": {
         "default_popup": "popup.html"
       },
