@@ -1,22 +1,220 @@
 <!DOCTYPE html>
 <html>
   <head>
-      <title>When Is Lunch Extension</title>
-      <style>
-          * {
-        margin: 0;
-        padding: 0;
-      }
-      html, body {
+    <!-- Meta Tags -->
+
+    <!-- Title -->
+    <title>When Is Lunch? - A Simple School Schedule Clock/Timer</title>
+
+    <!-- Link Tags -->
+    <link rel="stylesheet" href="./styling/index.css">
+    <link rel="icon" type="image/x-icon" href="https://whenislun.ch/images/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+      body {
         width: 400px;
         height: 400px;
         overflow: hidden;
       }
-      </style>
+    </style>
   </head>
   <body>
-    <div style="height: 100vh; width: 100vw; overflow: hidden;">
-    <iframe src="https://whenislun.ch" style="width: 100%; height: 100%; border: none; overflow: hidden;"></iframe>
+    <div class="headText">
+      <h3 id="currentDate"></h3>
+      <h3 id="todaysDate"></h3>
+
+      <h4 id="current"></h4>
+      <h4 id="timeLeft"></h4>
+
+      <p id="schedule"></p>
+
+      <hr>
+
+      <div class = "schedList">
+
+      <p style="font-size: 28px;">Enter your schedule below!</p>
+      <button id="help-link" onclick="showHelp()">Learn how to use WhenIsLun.ch</button>
     </div>
+
+    <div id="alertbox" class="alert">
+      <span class="alertClose" onclick="this.parentElement.style.display='none';">&times;</span>
+      <p id="alerttext"></p>
+    </div>
+
+    <div class="schedules">
+    <div class="sched" style="display: inline-block;">
+      <p>Period One</p>
+      <input type="text" list="classinputs" id="name1" placeholder="Class Name">
+      <br>
+      <input type="text" id="perTime1" placeholder="End Time">
+      <br>
+      <p id="validTime1"></p>
+    </div>
+
+
+    <div class="sched" style="display: inline-block;">
+      <p>Period Two</p>
+      <input type="text" list="classinputs" id="name2" placeholder="Class Name">
+      <br>
+      <input type="text" id="perTime2" placeholder="End Time">
+      <br>
+      <p id="validTime2"></p>
+    </div>
+
+    <div class="sched" style="display: inline-block;">
+      <p>Period Three</p>
+      <input type="text" id="name3" list="classinputs" placeholder="Class Name">
+      <br>
+      <input type="text" id="perTime3" placeholder="End Time">
+      <br>
+      <p id="validTime3"></p>
+    </div>
+
+    <div class="sched" style="display: inline-block;">
+      <p>Period Four</p>
+      <input type="text" id="name4" list="classinputs" placeholder="Class Name">
+      <br>
+      <input type="text" id="perTime4" placeholder="End Time">
+      <br>
+      <p id="validTime4"></p>
+    </div>
+
+    <div class="sched" style="display: inline-block;">
+      <p>Period Five</p>
+      <input type="text" id="name5" list="classinputs" placeholder="Class Name">
+      <br>
+      <input type="text" id="perTime5" placeholder="End Time">
+      <br>
+      <p id="validTime5"></p>
+    </div>
+
+    <div class="sched" style="display: inline-block;">
+      <p>Period Six</p>
+      <input type="text" id="name6" list="classinputs" placeholder="Class Name">
+      <br>
+      <input type="text" id="perTime6" placeholder="End Time">
+      <br>
+      <p id="validTime6"></p>
+    </div>
+
+    <div class="sched" style="display: inline-block;">
+      <p>Period Seven</p>
+      <input type="text" id="name7" list="classinputs" placeholder="Class Name">
+      <br>
+      <input type="text" id="perTime7" placeholder="End Time">
+      <br>
+      <p id="validTime7"></p>
+    </div>
+
+    <div class="sched" style="display: inline-block;">
+      <p>Period Eight</p>
+      <input type="text" id="name8" list="classinputs" placeholder="Class Name">
+      <br>
+      <input type="text" id="perTime8" placeholder="End Time">
+      <br>
+      <p id="validTime8"></p>
+    </div>
+
+    <div class="sched" style="display: inline-block;">
+      <p>Period Nine</p>
+      <input type="text" id="name9" list="classinputs" placeholder="Class Name">
+      <br>
+      <input type="text" id="perTime9" placeholder="End Time">
+      <br>
+      <p id="validTime9"></p>
+    </div>
+
+    <div class="sched" style="display: inline-block;">
+      <p>Period Ten</p>
+      <input type="text" id="name10" list="classinputs" placeholder="Class Name">
+      <br>
+      <input type="text" id="perTime10" placeholder="End Time">
+      <br>
+      <p id="validTime10"></p>
+    </div>
+
+    <datalist id="classinputs">
+      <option value="Algebra"></option>
+      <option value="Biology"></option>
+      <option value="Chemistry"></option>
+      <option value="English"></option>
+      <option value="History"></option>
+      <option value="Math"></option>
+      <option value="PE"></option>
+      <option value="Physics"></option>
+      <option value="Science"></option>
+      <option value="Study Hall"></option>
+    </datalist>
+
+    <br>
+  
+    <div style="text-align: center;">
+    <button style="margin-left: -30px;" class = "submit" onclick="checkAll('button')">Submit</button>
+    <div class="dropdown">
+      <button class="submit" style="border-left:1px solid navy; border-radius: 0px 8px 8px 0px;">
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <button onclick="getShareLink()">Get Share Link</button>
+      </div>
+    </div>
+    <br>
+    <br>
+    <button class="button" onclick="viewSched()">View Stored Schedule</button>
+
+    <button class = "button" onclick="removeSched()">Remove Stored Schedule</button>
+
+    <button class="button" onclick="darkMode()">Dark Mode</button>
+
+    <button class="button" onclick="shareSched()">Share Schedule</button>
+    </div>
+  </div>
+
+  <div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('myModal')">&times;</span>
+      <h3 style="color: black;" id="modal-header"></h3>
+      <input style="width: 85%;" type="text" id="modal-text" onClick="this.select();" value="Some text in the Modal.." readonly="readonly">
+      <button class="button" onclick="copyText()">Copy Link</button>
+    </div>
+  
+  </div>
+
+    <!-- Modal content -->
+    <div id="help-modal-wrapper" class="help-modal-wrapper">
+      <div class="help-modal-content">
+      <span style="color: black;" class="close" onclick="closeModal('help-modal-wrapper')">&times;</span>
+      <h3 style="color: black;" id="help-modal-header"></h3>
+      <span style="color: black; font-size: 20px;">
+        <h1 style="font-size: 25px; font-weight: bold;">Welcome to WhenIsLun.ch!</h1>
+        Wondering how much time is left in your schedule? Enter your schedule here and get customized results each time you load the page!
+        <br>
+        This site is made to help you manage your schedule, whether you're in school or at work! Once you set your schedule, you'll be able to refresh the page without it being reset (as long as you don't clear your cache). If you spot any issues while using this site, you can open an issue in <a href="https://github.com/BobBrown1/clock">our github</a>.
+        <br><br><hr>
+        <p style="font-size:23px;">Schedule Time Format:</p>
+        <p style="margin-left:5%; margin-right:5%;">You should format your schedule times in the  <code>HH:MM AM/PM</code>  format. For example, <code>10:30 AM</code>, <code>12:15 PM</code>, and <code>3:45 PM</code>.<br><br>We also allow the usage military time, but you will still have to include <code>AM/PM </code>. If you try to use <code>AM</code> in a military time after <code>13:00</code>, your schedule will not be accepted.</p>
+        <br><br><hr>
+        <p style="font-size:23px;">Sharing Schedules:</p>
+        <p style="margin-left:5%; margin-right:5%;">Often someone else will have a similar (or the same) schedule as you or you will have different schedules every day. It can be annoying to have to enter the same schedule on multiple devices or enter a new one each day. Luckily, WhenIsLun.ch comes with a simple schedule sharing feature.<br><br>The sharing feature is very simple. To use it, follow the instructions below:<br><br>
+        <ol style="margin-left:5%; margin-right:5%;">
+          <li>Set your schedule on your primary device. If you don't want to reset your own schedule, simply enter the schedules into the input boxes without clicking submit.</li>
+          <li>Scroll to the bottom of the main page and click <code>Share Schedule</code>. If you're schedule is not set, click the arrow next to the <code>Submit</code> button and select <code>Get Share Link</code>. This will open a modal where you can view and copy your schedule link.</li>
+          <li>Click the <code>Copy</code> button and the link will be copied to your clipboard.</li>
+        </ol><br>
+        <p style="margin-left:5%; margin-right:5%;">Once you've followed these steps, you can bookmark and/or share your schedule. Bookmarking your schedule will save you time if you have different schedules throughout your week. To bookmark these links, simply paste the URL into your browser and bookmark the page before clicking <code>Return Home</code> on the landing page. If you'd just like to share your schedule, simply paste the link into an email/text and send it to anyone you'd like!</p></p>
+      </span>
+      </div>
+    </div>
+
+    <br>
+    <p style="text-align: center; font-size: 18px;">A perfect school countdown<br><br>WhenIsLunch is a great resource for those who like to stay on schedule, whether you are at work, in school, or running errands. It's also great for anyone wondering when their classes end! This website will act as a time or clock for your schedule.</p>
+    <br>
+    <p style="text-align: center; font-size: 18px;">© 2022 WhenIsLun.ch</p>
+
+    <script src="./scripts/index.js"></script>
+    <script src="./scripts/sched.js"></script>
   </body>
 </html>
