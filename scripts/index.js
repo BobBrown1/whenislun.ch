@@ -7,6 +7,10 @@ if (urlParams.has('a')) {
   }
 }
 
+if (localStorage.getItem("darkMode") != null) {
+  darkMode();
+}
+
 function updateDate() {
     var str = "";
 
@@ -99,6 +103,12 @@ function darkMode() {
   for (var i = 0; i < classes.length; i++) {
     classes[i].classList.toggle("dark-input");
   }
+  var darkModeClasses = document.getElementsByClassName("dark-mode");
+  if (darkModeClasses.length < 1) {
+    localStorage.removeItem("darkMode");
+  } else {
+    localStorage.setItem("darkMode", "true")
+  }
 }
 
 // When the user clicks on the button, open the modal
@@ -159,4 +169,18 @@ function copyText() {
 
   navigator.clipboard.writeText(val.value);
 
+}
+
+function editSched() {
+  if (localStorage.getItem("classes") == null) {
+    alert("No set schedule.");
+  } else {
+    var classes = JSON.parse(localStorage.getItem("classes"));
+    var classNum = 1
+    for (var i = 0; i < classes.length; i++) {
+      document.getElementById(`name${classNum}`).value = classes[i]["name"];
+      document.getElementById(`perTime${classNum}`).value = classes[i]["time"];
+      classNum += 1;
+    }
+  }
 }
