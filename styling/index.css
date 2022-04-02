@@ -1,11 +1,11 @@
-/* Import Overpass Font */
+/* Import Cairo Font */
 
-@import url('https://fonts.googleapis.com/css2?family=Overpass:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300&display=swap');
 
 /* Body Styling */
 
 body {
-    font-family: 'Overpass', sans-serif;
+    font-family: 'Cairo', sans-serif;
     background-color: white;
     color: black;
 }
@@ -32,7 +32,7 @@ input {
 }
 
 ::placeholder {
-    font-family: 'Overpass', sans-serif;
+    font-family: 'Cairo', sans-serif;
 }
 
 /* Button Styling */
